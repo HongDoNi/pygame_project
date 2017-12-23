@@ -132,7 +132,7 @@ def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
 		stats.game_active = False
 
 
-def update_screen(ai_settings, screen, ship, aliens, bullets):
+def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button):
 	screen.fill(ai_settings.bg_color)
 
 	for bullet in bullets.sprites():
@@ -141,8 +141,13 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
 	ship.blitme()
 	aliens.draw(screen)
 
+	if not stats.game_active:
+		play_button.draw_button()
+
 
 	pygame.display.flip()
+
+
 
 
 
